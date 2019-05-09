@@ -12,6 +12,8 @@ declare type Opts = {
     size?: number;
     /** http(s).Agent instance, allows custom proxy, certificate, lookup, family etc. */
     agent?: string | null;
+    /** */
+    requestedWith?: string | null;
 };
 declare function unfurl(url: string, opts?: Opts): Promise<{
     twitter_card: {};

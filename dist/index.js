@@ -30,6 +30,7 @@ function unfurl(url, opts) {
     typeof opts.compress === "boolean" || (opts.compress = true);
     typeof opts.userAgent === "string" ||
         (opts.userAgent = "facebookexternalhit");
+    typeof opts.requestedWith === "string" || (opts.requestedWith = "https://google.com");
     Number.isInteger(opts.follow) || (opts.follow = 50);
     Number.isInteger(opts.timeout) || (opts.timeout = 0);
     Number.isInteger(opts.size) || (opts.size = 0);
@@ -46,7 +47,8 @@ function getPage(url, opts) {
         const res = yield cross_fetch_1.default(url, {
             headers: {
                 Accept: "text/html, application/xhtml+xml",
-                "User-Agent": opts.userAgent
+                "User-Agent": opts.userAgent,
+                "X-Requested-With": opts.requestedWith,
             }
         });
         const buf = Buffer.from(yield res.arrayBuffer());

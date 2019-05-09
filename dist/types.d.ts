@@ -11,6 +11,8 @@ export declare type Opts = {
     size?: number;
     /** User-Agent string is often used for content negotiation */
     userAgent?: string;
+    /** */
+    requestedWith?: string;
 };
 export declare type Metadata = {
     title: string;
